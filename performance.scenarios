@@ -1,0 +1,16 @@
+abiChange {
+  tasks = ["assembleDebug"]
+  apply-abi-change-to = "k9mail-library/src/main/java/com/fsck/k9/mail/helper/UrlEncodingHelper.java"
+}
+
+upToDateSingleVariant {
+  tasks = ["assembleDebug"]
+}
+
+rebuildSingleVariant {
+  tasks = ["clean", "assembleDebug"]
+}
+
+help {
+  tasks = ["help"]
+}
