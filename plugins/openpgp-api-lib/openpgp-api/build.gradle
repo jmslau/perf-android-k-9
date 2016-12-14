@@ -8,7 +8,7 @@ android {
     defaultConfig {
         versionCode 8
         versionName '9.0' // API-Version . minor
-        minSdkVersion 9
+        minSdkVersion 21
         targetSdkVersion 22
     }
 

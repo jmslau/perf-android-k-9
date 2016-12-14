@@ -52,7 +52,7 @@ android {
         versionCode 23114
         versionName '5.115'
 
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 22
 
         generatedDensities = ['mdpi', 'hdpi', 'xhdpi']
