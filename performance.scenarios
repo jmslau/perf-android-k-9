@@ -8,12 +8,32 @@ androidManifestChange {
   apply-android-manifest-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/AndroidManifest.xml"
 }
 
+androidResourceChange {
+    tasks = ["assembleDebug"]
+    apply-android-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/res/values/strings.xml"
+}
+
+classpathResourceChange {
+    tasks = ["assembleDebug"]
+    apply-property-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/resources/app.properties"
+}
+
 upToDateSingleVariant {
   tasks = ["assembleDebug"]
 }
 
 rebuildSingleVariant {
   tasks = ["clean", "assembleDebug"]
+}
+
+upToDateAllVariants {
+  tasks = ["assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
+}
+
+rebuildAllVariants {
+  tasks = ["clean", "assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
 }
 
 help {
