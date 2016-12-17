@@ -1,25 +1,30 @@
 abiChange {
   tasks = ["assembleDebug"]
   apply-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
+  warm-ups = 10
 }
 
 androidManifestChange {
   tasks = ["assembleDebug"]
   apply-android-manifest-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/AndroidManifest.xml"
+  warm-ups = 10
 }
 
 androidResourceChange {
     tasks = ["assembleDebug"]
     apply-android-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/res/values/strings.xml"
+    warm-ups = 10
 }
 
 classpathResourceChange {
     tasks = ["assembleDebug"]
     apply-property-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/resources/app.properties"
+    warm-ups = 10
 }
 
 upToDateSingleVariant {
   tasks = ["assembleDebug"]
+  warm-ups = 10
 }
 
 rebuildSingleVariant {
@@ -30,6 +35,7 @@ rebuildSingleVariant {
 upToDateAllVariants {
   tasks = ["assemble"]
   gradle-args = ["-x", "lintVitalRelease"]
+  warm-ups = 10
 }
 
 rebuildAllVariants {
@@ -40,4 +46,5 @@ rebuildAllVariants {
 
 help {
   tasks = ["help"]
+  warm-ups = 20
 }
