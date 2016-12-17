@@ -26,3 +26,6 @@ build.xml
 proguard-project.txt
 .idea/
 *.iml
+profile-out*
+gradle-user-home
+.DS_Store
