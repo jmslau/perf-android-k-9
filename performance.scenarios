@@ -1,46 +1,88 @@
 abiChange {
-  tasks = ["assembleDebug"]
+  tasks = ["k9mail:assembleDebug"]
   apply-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
   warm-ups = 10
 }
 
+abiChangeWithInstantRun {
+  tasks = ["k9mail:assembleDebug"]
+  apply-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
+  gradle-args = [
+    "-Pandroid.injected.invoked.from.ide=true",
+    "-Pandroid.injected.build.api=25",
+    "-Pandroid.injected.build.density=420dpi",
+    "-Pandroid.injected.build.abi=x86",
+    "-Pandroid.injected.restrict.variant.name=debug",
+    "-Pandroid.injected.restrict.variant.project=:k9mail",
+    "-Pandroid.optional.compilation=INSTANT_DEV"
+  ]
+  warm-ups = 10
+}
+
+nonAbiChange {
+  tasks = ["k9mail:assembleDebug"]
+  apply-non-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
+  warm-ups = 10
+}
+
+nonAbiChangeWithInstantRun {
+  tasks = ["k9mail:assembleDebug"]
+  apply-non-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
+  gradle-args = [
+    "-Pandroid.injected.invoked.from.ide=true",
+    "-Pandroid.injected.build.api=25",
+    "-Pandroid.injected.build.density=420dpi",
+    "-Pandroid.injected.build.abi=x86",
+    "-Pandroid.injected.restrict.variant.name=debug",
+    "-Pandroid.injected.restrict.variant.project=:k9mail",
+    "-Pandroid.optional.compilation=INSTANT_DEV"
+  ]
+  warm-ups = 10
+}
+
 androidManifestChange {
-  tasks = ["assembleDebug"]
+  tasks = ["k9mail:assembleDebug"]
   apply-android-manifest-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/AndroidManifest.xml"
   warm-ups = 10
 }
 
 androidResourceChange {
-    tasks = ["assembleDebug"]
+    tasks = ["k9mail:assembleDebug"]
     apply-android-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/res/values/strings.xml"
     warm-ups = 10
 }
 
+androidResourceValueChange {
+    tasks = ["k9mail:assembleDebug"]
+    apply-android-resource-value-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/res/values/strings.xml"
+    warm-ups = 10
+}
+
 classpathResourceChange {
-    tasks = ["assembleDebug"]
+    tasks = ["k9mail:assembleDebug"]
     apply-property-resource-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/resources/app.properties"
     warm-ups = 10
 }
 
 upToDateSingleVariant {
-  tasks = ["assembleDebug"]
+  tasks = ["k9mail:assembleDebug"]
   warm-ups = 10
 }
 
 rebuildSingleVariant {
   cleanup-tasks = ["clean"]
-  tasks = ["assembleDebug"]
+  tasks = ["k9mail:assembleDebug"]
 }
 
 upToDateAllVariants {
-  tasks = ["assemble"]
+  tasks = ["k9mail:assemble"]
   gradle-args = ["-x", "lintVitalRelease"]
   warm-ups = 10
 }
 
 rebuildAllVariants {
   cleanup-tasks = ["clean"]
-  tasks = ["assemble"]
+  tasks = ["k9mail:assemble"]
   gradle-args = ["-x", "lintVitalRelease"]
 }
 
