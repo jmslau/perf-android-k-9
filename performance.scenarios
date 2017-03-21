@@ -22,7 +22,7 @@ abiChangeWithInstantRun {
 nonAbiChange {
   tasks = ["k9mail:assembleDebug"]
   apply-non-abi-change-to = "plugins/openpgp-api-lib/openpgp-api/src/main/java/org/openintents/openpgp/OpenPgpError.java"
-  warm-ups = 10
+  warm-ups = 5
 }
 
 nonAbiChangeWithInstantRun {
@@ -72,6 +72,7 @@ upToDateSingleVariant {
 rebuildSingleVariant {
   cleanup-tasks = ["clean"]
   tasks = ["k9mail:assembleDebug"]
+  warm-ups = 5
 }
 
 upToDateAllVariants {
