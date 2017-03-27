@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.4.0-alpha1'
+        classpath 'com.android.tools.build:gradle:2.5.0-alpha-preview-01'
     }
 }
 
@@ -20,7 +20,7 @@ subprojects {
                 "com.android.build.gradle.LibraryPlugin".equals(plugin.class.name)) {
             android.dexOptions {
               preDexLibraries = !rootProject.hasProperty('disablePreDex')
-              javaMaxHeapSize = "0m"
+             // javaMaxHeapSize = "0m"
             }
         }
     }
