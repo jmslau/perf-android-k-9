@@ -65,14 +65,16 @@ android {
         multiDexEnabled true
     }
 
+    flavorDimensions "use"
     productFlavors {
         dev {
             minSdkVersion 24
             resConfigs "en", "xhdpi"
+            dimension "use"
         }
 
         nonDev {
-
+            dimension "use"
         }
     }
 
