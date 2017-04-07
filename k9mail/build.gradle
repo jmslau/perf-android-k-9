@@ -46,6 +46,9 @@ android {
     compileSdkVersion androidCompileSdkVersion.toInteger()
     buildToolsVersion androidBuildToolsVersion
 
+    aaptOptions {
+        cruncherEnabled false
+    }
     defaultConfig {
         applicationId "com.fsck.k9"
         testApplicationId "com.fsck.k9.tests"
@@ -60,6 +63,17 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+    }
+
+    productFlavors {
+        dev {
+            minSdkVersion 24
+            resConfigs "en", "xhdpi"
+        }
+
+        nonDev {
+
+        }
     }
 
     signingConfigs {
