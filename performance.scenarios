@@ -1,0 +1,27 @@
+# Performance scenarios for K9 Mail
+
+cleanBuild {
+	tasks = [":k9mail:assembleDebug"]
+	cleanup-tasks = ["clean"]
+	warm-ups = 4
+}
+
+incrementalBuildJavaNonAbiChange {
+	tasks = [":k9mail:assembleDebug"]
+	apply-non-abi-change-to = "k9mail/src/main/java/com/fsck/k9/activity/K9Activity.java"
+	warm-ups = 4
+	
+}
+
+incrementalBuildJavaAbiChange {
+	tasks = [":k9mail:assembleDebug"]
+	apply-abi-change-to = "k9mail-library/src/main/java/com/fsck/k9/mail/Address.java"
+	warm-ups = 4
+}
+
+incrementalBuildResChange {
+	tasks = [":k9mail:assembleDebug"]
+	apply-android-resource-value-change-to = "k9mail/src/main/res/values/strings.xml"
+	warm-ups = 4
+}
+
